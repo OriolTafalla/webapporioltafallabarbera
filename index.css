@@ -1,6 +1,12 @@
 html { 
     height: -webkit-fill-available;    /* per a dispositius mòbils */
 }
+@font-face {
+  font-family: 'Space Mono';
+  src: url('fonts/Space-Mono.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
 body {
     display: flex;    /* tipus de display que ofereix més prestacions que block */
     flex-direction: column;    /* els elements es disposen de dalt cap abaix */
