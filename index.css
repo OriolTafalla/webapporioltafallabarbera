@@ -9,6 +9,6 @@ body {
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
     margin: 0px;    /* elimina tots els marges del document */
-    font-family: Space Mono;    /* un tipus de lletra adient per a llocs web */
-    background-color: #4d666d;    /* color de fons en format #RRGGBB */
+    font-family: Space-Mono;    /* un tipus de lletra adient per a llocs web */
+    background-color: #3b4547;    /* color de fons en format #RRGGBB */
 }
