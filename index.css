@@ -15,7 +15,7 @@ body {
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
     margin: 0px;    /* elimina tots els marges del document */
-    background-color: #2b2036;    /* color de fons en format #RRGGBB */
+    background-color: #2f1c3d;    /* color de fons en format #RRGGBB */
     color: #f1f8f9;
 }
 #superior {
@@ -48,7 +48,21 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #2b163f;
+    background-color: #432b54;
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
+}
+@media (orientation: landscape) {
+    body {
+        flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
+        flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
+    }
+    #superior {
+        display: none;    /* franja superior oculta per optimitzar l'espai */
+    }
+    #menu {
+        flex-direction: column;
+        width: 8vmax;
+        height: auto;    /* sobreescriu la declaració height: 8vmax; */
+    }
 }
