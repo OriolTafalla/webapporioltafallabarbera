@@ -15,7 +15,7 @@ body {
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
     margin: 0px;    /* elimina tots els marges del document */
-    background-color: #3b4547;    /* color de fons en format #RRGGBB */
+    background-color: #2b2036;    /* color de fons en format #RRGGBB */
     color: #f1f8f9;
 }
 #superior {
@@ -26,7 +26,7 @@ body {
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
     font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */  
     color: white;    /* color del text */
-    background-color: #3b4142;    /* color de fons */
+    background-color: #4c355f;    /* color de fons */
 }
 .seccio {
     flex: 1;    /* les seccions ocupen tot l'espai disponible */
@@ -39,5 +39,16 @@ body {
     font-size: 4vmax;
 }
 #menu {
-    height: 8vmax;    /* alçària d'un 8% respecte l'alçària de la pantalla */
+    display: flex;    /* el menú és un contenidor de tipus flex */
+    height: 8vmax;
+}
+#menu i{
+    flex: 1;    /* cada botó pretén ocupar tot l'espai disponible */
+    display: flex;    /* contenidor flex on centrar-hi la icona */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #2b163f;
+    font-size: 5vmax;
+    cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
 }
