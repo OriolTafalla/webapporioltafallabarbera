@@ -1,12 +1,7 @@
 html { 
     height: -webkit-fill-available;    /* per a dispositius mòbils */
 }
-@font-face {
-  font-family: 'Share Tech Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(http://themes.googleusercontent.com/static/fonts/sharetechmono/v1/RQxK-3RA0Lnf3gnnnNrAsYW_AySPyikQrZReizgrnuw.ttf) format('truetype');
-}
+
 body {
     display: flex;    /* tipus de display que ofereix més prestacions que block */
     flex-direction: column;    /* els elements es disposen de dalt cap abaix */
@@ -14,14 +9,7 @@ body {
     min-height: 100vh;    /* alçària de la pantalla en navegadors d'escriptori */
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
-    margin: 0px;    /* elimina tots els marges del document */
-    @font-face {
-  font-family: 'Share Tech Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(http://themes.googleusercontent.com/static/fonts/sharetechmono/v1/RQxK-3RA0Lnf3gnnnNrAsYW_AySPyikQrZReizgrnuw.ttf) format('truetype');
-    }
-    src: url('https://fonts.google.com/share?selection.family=Questrial|Space+Mono:ital,wght@0,400;0,700;1,400;1,700') format('truetype');
+    margin: 0px;    /* elimina tots els marges del document *
     background-color: #3b4547;    /* color de fons en format #RRGGBB */
     color: #f1f8f9;
 }
@@ -31,6 +19,12 @@ body {
     justify-content: center;    /* centra els elements en la direcció de disposició */
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
     font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
+    @font-face {
+  font-family: 'Share Tech Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Share Tech Mono'), local('ShareTechMono-Regular'), url(http://themes.googleusercontent.com/static/fonts/sharetechmono/v1/RQxK-3RA0Lnf3gnnnNrAsYW_AySPyikQrZReizgrnuw.ttf) format('truetype');
+}
     color: white;    /* color del text */
     background-color: #3b4142;    /* color de fons */
 }
