@@ -14,17 +14,17 @@ body {
     min-height: 100vh;    /* alçària de la pantalla en navegadors d'escriptori */
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
-    margin: 0px;    /* elimina tots els marges del document *
+    margin: 0px;    /* elimina tots els marges del document */
     background-color: #3b4547;    /* color de fons en format #RRGGBB */
     color: #f1f8f9;
 }
 #superior {
     display: flex;
+    font-family: 'Share Tech Mono';
     height: 8vmax;    /* alçària d'un 8% respecte l'alçària de la pantalla */
     justify-content: center;    /* centra els elements en la direcció de disposició */
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
-    font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
-    font-family: 'Share Tech Mono';
+    font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */  
     color: white;    /* color del text */
     background-color: #3b4142;    /* color de fons */
 }
