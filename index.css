@@ -33,14 +33,13 @@ body {
     display: none;    /* les seccions s'inicien ocultes, excepte la primera */
 }
 #seccio_1 {
-    display: flex;    /* única secció que es mostra a l'inici */
     justify-content: center;    /* contingut centrat en la direcció de disposició */
     align-items: center;    /* contingut centrat en la direcció transversal */
     font-size: 4vmax;
 }
 #menu {
     display: flex;    /* el menú és un contenidor de tipus flex */
-    height: 8vmax;
+    height: auto;
 }
 #menu i{
     flex: 1;    /* cada botó pretén ocupar tot l'espai disponible */
