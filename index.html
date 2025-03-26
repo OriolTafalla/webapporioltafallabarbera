@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/solid.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Descripció de la meva webapp">
@@ -47,15 +49,19 @@
       <input type="file" accept="image/*" id="obturador" capture="camera" /> <!-- element que captura la imatge -->
       <i id="desa" class="fa-solid fa-check"></i>    <!-- icona del botó per desar la foto -->
   </div>
-</div>
-      </div>
+ </div>
       <div id="seccio_3" class="seccio">
-          Secció 3
-      </div>
+  <div id="llista_titol">    <!-- capçalera de la llista de fotos -->
+    <i class="fa-solid fa-image"></i>    <!-- per a la miniatura de les fotos -->
+    <i class="fa-solid fa-calendar-days"></i>    <!-- per a la data de captura de les fotos -->
+    <i class="fa-solid fa-trash"></i>    <!-- per esborrar les fotos -->    
+  </div>
+  <div id="llista_fotos">    <!-- contenidor, inicialment buit, on hi haurà una fila per a cada foto -->
+  </div>
+</div>
       <div id="seccio_4" class="seccio">
-          Secció 4
       </div>
-      <div id="menu">      
+    <div id="menu">      
      <div id="menu">      
      <i id="boto_1" class="fa-solid fa-house"></i>    <!-- secció inicial -->     
      <i id="boto_2" class="fa-solid fa-camera"></i>    <!-- càmera -->
