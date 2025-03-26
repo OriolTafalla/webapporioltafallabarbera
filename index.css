@@ -95,4 +95,104 @@ body {
     padding: 2vmin;
     margin: 1vmin;
 }
+#div_foto {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#icona_camera {
+    font-size: 40vmin;
+    color: #950E17;
+}
+#foto {
+    max-width: 60vmin;    /* dimensions màximes per a la prveisualització de les fotos */
+    max-height: 60vmin;
+    cursor: pointer;
+}
+#div_control {
+    height: 25vmax;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#div_control i {
+    cursor: pointer;
+    font-size: 20vmin;    
+    color: green;
+}
+#obturador {
+    position: absolute;
+    width: 0;
+    opacity: 0;
+}
+#canvas, #desa {
+    display: none;
+}
+#div_gran {
+    display: none;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    max-height: 100vh;
+    max-height: 100svh;
+    max-height: -webkit-fill-available;
+}
+#foto_gran {
+    max-width: 95vmin;
+    max-height: 95vmax;
+    cursor: pointer;
+}
+@media (orientation: landscape) {
+    #seccio_2 {
+        flex-direction: row;
+    }
+    #div_foto {
+        flex-direction: column;
+    }
+    #div_control {
+        width: 25vmax;
+        height: auto;
+        flex-direction: column;
+    }
+    #div_gran {
+        max-height: 100vh;
+        max-height: 100svh;
+    }
+    #foto_gran {
+        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
+    }
+}
+#llista_titol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#llista_titol i {
+    font-size: 4vmax;
+    color:#950E17;
+}
+#llista_titol i:nth-child(1) {    /* primer <i> (miniatura de la foto) */
+    flex: 2;
+}
+#llista_titol i:nth-child(2) {    /* segon <i> (data i hora) */
+    flex: 3;
+}
+#llista_titol i:nth-child(3) {    /* tercer <i> (icona per esborrar la foto) */
+    flex: 1;
+}
+#llista_fotos {
+    height: 70vmax;
+    overflow-y: scroll;
+}
+#llista_fotos::-webkit-scrollbar {
+    display: none;    /* oculta la barra de desplaçament vertical */
+}
+@media (orientation: landscape) {
+    #llista_fotos {
+        height: 70vmin;
+    }
+}
 }
