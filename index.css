@@ -52,7 +52,7 @@ body {
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
 }
-    @media (orientation: landscape) {
+@media (orientation: landscape) {
     body {
         flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
         flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
@@ -65,7 +65,7 @@ body {
         width: 8vmax;
         height: auto;    /* sobreescriu la declaració height: 8vmax; */
     }
-    @media (orientation: landscape) {
+@media (orientation: landscape) {
     body {
         flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
         flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
