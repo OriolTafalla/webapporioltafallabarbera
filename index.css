@@ -20,7 +20,6 @@ body {
 }
 #superior {
     display: flex;
-    font-family: 'Share Tech Mono';
     height: 8vmax;    /* alçària d'un 8% respecte l'alçària de la pantalla */
     justify-content: center;    /* centra els elements en la direcció de disposició */
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
@@ -54,17 +53,17 @@ body {
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
 }
 @media (orientation: landscape) {
-    body {
-        flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
-        flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
-    }
-    #superior {
-        display: none;    /* franja superior oculta per optimitzar l'espai */
-    }
-    #menu {
-        flex-direction: column;
-        width: 8vmax;
-        height: auto;    /* sobreescriu la declaració height: 8vmax; */
+body {
+     flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
+    flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
+ }
+#superior {
+    display: none;    /* franja superior oculta per optimitzar l'espai */
+ }
+ #menu {
+    flex-direction: column;
+    width: 8vmax;
+    height: auto;    /* sobreescriu la declaració height: 8vmax; */
     }
 }
         #seccio_0 {
@@ -72,6 +71,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Space Mono':
     font-size: 4vmax;
 }
 #credencials {
