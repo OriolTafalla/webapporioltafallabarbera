@@ -3,7 +3,7 @@ html {
 }
 @font-face {
   font-family: 'Space Mono';
-  src:url(/textfonts/SpaceMono-Bold.ttf);
+  src:url(/textfonts/SpaceMono-Regular.ttf);
   font-weight: bold;
 
 }
@@ -34,13 +34,13 @@ body {
 #seccio_1 {
     justify-content: center;    /* contingut centrat en la direcció de disposició */
     align-items: center;    /* contingut centrat en la direcció transversal */
-    font-family: 'Space Mono';
+    font-family: 'ui-rounded';
     font-weight: bold;
     font-size: 4vmax;
 }
 #menu {
     display: flex;    /* el menú és un contenidor de tipus flex */
-    height: 100vmax;
+    height: 8vmax;
 }
 #menu i{
     flex: 1;    /* cada botó pretén ocupar tot l'espai disponible */
@@ -51,8 +51,7 @@ body {
     background-color: #432b54;
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
-}
-@media (orientation: landscape) {
+    @media (orientation: landscape) {
 body {
      flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
     flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
@@ -60,6 +59,8 @@ body {
 #superior {
     display: none;    /* franja superior oculta per optimitzar l'espai */
  }
+}
+
  #menu {
     flex-direction: column;
     width: 8vmax;
@@ -71,7 +72,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Space Mono':
+    font-family: 'ui-rounded':
     font-size: 4vmax;
 }
 #credencials {
