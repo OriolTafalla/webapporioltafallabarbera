@@ -60,6 +60,9 @@ body {
      flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
     flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
  }
+        #seccio_5 {
+        flex-direction: row;
+    }
 }
 
  #menu {
@@ -213,7 +216,5 @@ body {
 #prediccions {
     font-size: 3vh;
 }
-    #seccio_5 {
-        flex-direction: row;
-    }
+
 }
