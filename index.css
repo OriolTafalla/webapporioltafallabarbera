@@ -19,7 +19,7 @@ body {
     color: #f1f8f9;
 }
 #superior {
-    display: flex;
+    display: None;
     height: 8vmax;    /* alçària d'un 8% respecte l'alçària de la pantalla */
     justify-content: center;    /* centra els elements en la direcció de disposició */
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
@@ -40,7 +40,7 @@ body {
 }
 #menu {
     display: flex;    /* el menú és un contenidor de tipus flex */
-    height: 8vmax;
+    height: 100vmax;
 }
 #menu i{
     flex: 1;    /* cada botó pretén ocupar tot l'espai disponible */
@@ -60,9 +60,46 @@ body {
      flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
     flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
  }
-        #seccio_5 {
+#seccio_5 {
+flex-direction: row;
+    }
+ #seccio_2 {
         flex-direction: row;
     }
+    #div_foto {
+        flex-direction: column;
+    }
+    #div_control {
+        width: 25vmax;
+        height: auto;
+        flex-direction: column;
+    }
+    #div_gran {
+        max-height: 100vh;
+        max-height: 100svh;
+    }
+    #foto_gran {
+        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
+    }
+    #llista_fotos {
+    height: 70vmin;
+    }
+    }
+#webcam-container {
+    margin: 2vh;
+}
+#reconeixement {
+    text-align:center;
+}
+#coincidencia {
+    display: none;    /* es farà visible quan es comencin a tenir dades */
+    font-size: 4vh;
+    margin-bottom: 1vh;
+}
+#prediccions {
+    font-size: 3vh;
+}
+
 }
 
  #menu {
@@ -151,26 +188,6 @@ body {
     max-height: 95vmax;
     cursor: pointer;
 }
-@media (orientation: landscape) {
-    #seccio_2 {
-        flex-direction: row;
-    }
-    #div_foto {
-        flex-direction: column;
-    }
-    #div_control {
-        width: 25vmax;
-        height: auto;
-        flex-direction: column;
-    }
-    #div_gran {
-        max-height: 100vh;
-        max-height: 100svh;
-    }
-    #foto_gran {
-        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
-    }
-}
 #llista_titol {
     display: flex;
     justify-content: center;
@@ -197,24 +214,4 @@ body {
 #llista_fotos::-webkit-scrollbar {
     display: none;    /* oculta la barra de desplaçament vertical */
 }
-@media (orientation: landscape) {
-    #llista_fotos {
-        height: 70vmin;
-    }
-}
-#webcam-container {
-    margin: 2vh;
-}
-#reconeixement {
-    text-align:center;
-}
-#coincidencia {
-    display: none;    /* es farà visible quan es comencin a tenir dades */
-    font-size: 4vh;
-    margin-bottom: 1vh;
-}
-#prediccions {
-    font-size: 3vh;
-}
-
 }
