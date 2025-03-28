@@ -55,36 +55,7 @@ body {
 #superior {
     display: none;    /* franja superior oculta per optimitzar l'espai */
  }
-@media (orientation: landscape) {
-body {
-     flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
-    flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
- }
-#seccio_5 {
-flex-direction: row;
-    }
- #seccio_2 {
-        flex-direction: row;
-    }
-    #div_foto {
-        flex-direction: column;
-    }
-    #div_control {
-        width: 25vmax;
-        height: auto;
-        flex-direction: column;
-    }
-    #div_gran {
-        max-height: 100vh;
-        max-height: 100svh;
-    }
-    #foto_gran {
-        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
-    }
-    #llista_fotos {
-    height: 70vmin;
-    }
-    }
+
 #webcam-container {
     margin: 2vh;
 }
@@ -214,4 +185,48 @@ flex-direction: row;
 #llista_fotos::-webkit-scrollbar {
     display: none;    /* oculta la barra de desplaçament vertical */
 }
+#seccio_6 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#div_diagrama {
+    width: 80vmin;
+    font-size: 5vh;   
+    text-align: center;
+}
+#div_valor {
+    font-size: 15vh; 
+    margin-top: 5vh;  
+}
+@media (orientation: landscape) {
+body {
+     flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
+    flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
+ }
+#seccio_5 {
+flex-direction: row;
+    }
+ #seccio_2 {
+        flex-direction: row;
+    }
+    #div_foto {
+        flex-direction: column;
+    }
+    #div_control {
+        width: 25vmax;
+        height: auto;
+        flex-direction: column;
+    }
+    #div_gran {
+        max-height: 100vh;
+        max-height: 100svh;
+    }
+    #foto_gran {
+        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
+    }
+    #llista_fotos {
+    height: 70vmin;
+    }
+    }
 }
