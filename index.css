@@ -51,13 +51,14 @@ body {
     background-color: #432b54;
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
-    @media (orientation: landscape) {
+    
+#superior {
+    display: none;    /* franja superior oculta per optimitzar l'espai */
+ }
+@media (orientation: landscape) {
 body {
      flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
     flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
- }
-#superior {
-    display: none;    /* franja superior oculta per optimitzar l'espai */
  }
 }
 
@@ -198,4 +199,21 @@ body {
         height: 70vmin;
     }
 }
+#webcam-container {
+    margin: 2vh;
+}
+#reconeixement {
+    text-align:center;
+}
+#coincidencia {
+    display: none;    /* es farà visible quan es comencin a tenir dades */
+    font-size: 4vh;
+    margin-bottom: 1vh;
+}
+#prediccions {
+    font-size: 3vh;
+}
+    #seccio_5 {
+        flex-direction: row;
+    }
 }
