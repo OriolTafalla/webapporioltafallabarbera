@@ -49,6 +49,7 @@ body {
 #credencials input {    /* els 2 quadres de text dins de credencials */
     max-width: 20vmax;    /* es limita l'espai que ocupen els quadres de text */
     font-size: 3vmax;
+    border-radius: 4px;
 }
 #botons_sessio {
     display: flex;
