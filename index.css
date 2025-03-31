@@ -9,7 +9,9 @@ body {
     min-height: 100svh;    /* per a navegadors on la declaració anterior no és precisa */
     min-height: -webkit-fill-available;    
     margin: 0px;    /* elimina tots els marges del document */
-    font-family: sans-serif;    /* un tipus de lletra adient per a llocs web */
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;    /* un tipus de lletra adient per a llocs web */
     background-color: #2E236C;    /* color de fons en format #RRGGBB */
 }
 #superior {
