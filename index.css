@@ -22,7 +22,7 @@ body {
     align-items: center;    /* centra els elements en la direcció perpendicular a la de disposició */
     font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
     color: white;    /* color del text */
-    background-color: #950E17;    /* color de fons */
+    background-color: #2E236C;    /* color de fons */
 }
 .seccio {
     flex: 1;    /* les seccions ocupen tot l'espai disponible */
@@ -55,12 +55,13 @@ body {
     align-items: center;
 }
 #botons_sessio button {    /* els 2 botons dins de botons_sessio */
-    font-size: 3vmax;
+    font-size: 2vmax;
     padding: 2vmin;
     margin: 1vmin;
     font-family: "Space Mono", monospace;
     background-color: #F6F0F0;
-    color: #950E17;
+    color: #2E236C;
+    font-weight: 700;
     border-radius: 4px;
     border:none;
 }
