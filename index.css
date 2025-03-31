@@ -13,6 +13,7 @@ body {
     font-weight: 700;
     font-style: normal;    /* un tipus de lletra adient per a llocs web */
     background-color: #2E236C;    /* color de fons en format #RRGGBB */
+    color: #F6F0F0;
 }
 #superior {
     display: flex;    /* franja superior oculta per optimitzar l'espai */
