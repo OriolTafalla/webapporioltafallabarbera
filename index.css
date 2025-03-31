@@ -50,6 +50,10 @@ body {
     max-width: 20vmax;    /* es limita l'espai que ocupen els quadres de text */
     font-size: 3vmax;
     border-radius: 4px;
+    background-color: #F6F0F0;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+
 }
 #botons_sessio {
     display: flex;
