@@ -5,13 +5,13 @@ function canvia_seccio(num_boto) {
         let boto = document.getElementById("boto_" + i);
         let seccio = document.getElementById("seccio_" + i);
         if (i == num_boto) {
-            boto.style.color = "#950E17";    // es destaca la secció activa amb el canvi de colors del botó corresponent
-            boto.style.backgroundColor = "#FCDEE0";
+            boto.style.color = "#17153B";    // es destaca la secció activa amb el canvi de colors del botó corresponent
+            boto.style.backgroundColor = "#F6F0F0";
             seccio.style.display = "flex";    // es fa visible la secció activa
         }
         else {
-            boto.style.color = "white";    // colors dels botons de seccions inactives
-            boto.style.backgroundColor = "#950E17";
+            boto.style.color = "#F6F0F0";    // colors dels botons de seccions inactives
+            boto.style.backgroundColor = "#17153B";
             seccio.style.display = "none";    // s'oculten les seccions inactives
         }
     }
