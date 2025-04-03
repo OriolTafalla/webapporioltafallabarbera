@@ -122,3 +122,40 @@ function desa_foto() {
         };
     };
 }
+//------------------------------------------------------------------------------------------------------------------------
+function mostra_foto(id) {
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    let imatge = new Image;
+    if (id == 0) {    // darrera foto realitzada, potser sense desar
+        seccio_origen = 2;    // origen en la seccció "càmera"
+        document.getElementById("seccio_2").style.display = "none";    // s'oculta la secció "càmera"
+        imatge.src = document.getElementById("foto").src;
+    }
+    else {
+        seccio_origen = 3;    // origen en la seccció "galeria"
+        indexedDB.open("Dades").onsuccess = event => {    // s'obté la foto de la base de dades
+            event.target.result.transaction(["Fotos"], "readonly").objectStore("Fotos").get(id).onsuccess = event => {
+                document.getElementById("seccio_3").style.display = "none";    // s'oculta la secció "galeria"
+                imatge.src = event.target.result["Foto"];
+            }
+        }
+    }
+    imatge.onload = () => {    // esdeveniment que es produeix un cop s'ha carregat la imatge
+        if (imatge.width > imatge.height) {    // imatge apaïsada
+            canvas.width = imatge.height;
+            canvas.height = imatge.width;
+            context.translate(imatge.height, 0);
+            context.rotate(Math.PI / 2);
+        } else {    // imatge vertical
+            canvas.width = imatge.width;
+            canvas.height = imatge.height;
+        }
+        context.drawImage(imatge,0,0,imatge.width,imatge.height);
+        document.getElementById("foto_gran").src = canvas.toDataURL("image/jpeg", 0.5);
+    }
+    document.getElementById("superior").classList.add("ocult");    // s'oculta provisionalment el contenidor superior
+    document.getElementById("menu").style.display = "none";    // s'oculta el menú
+    document.getElementById("div_gran").style.display = "flex";    // es mostra el contenidor de la foto a pantalla completa
+}
+//------------------------------------------------------------------------------------------------------------------------
