@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">        
-    <meta name="description" content="Descripció de la meva WebApp.">    
+    <meta name="description" content="Descripció de la meva WebApp.">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js">    // s'utilitza la IA de TensorFlow </script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script> 
     <title>
       Webapp d'Oriol
     </title>
@@ -104,6 +106,7 @@
         <i id="boto_4" class="fa-solid fa-map" onclick="canvia_seccio(4)"></i>    <!-- mapa -->
         <i id="boto_5" class="fa-solid fa-brain"onclick="canvia_seccio(5)"></i>
         <i id="boto_6" class="fa-solid fa-chart-line"onclick="canvia_seccio(6)"></i>
+        <i id="icona_video" class="fa-solid fa-video" onclick="inicia_video()"></i>
         <i class="fa-solid fa-right-from-bracket" onclick="tanca_sessio()"></i>    <!-- tancar sessió -->
       </div>
    </div>
