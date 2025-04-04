@@ -239,3 +239,28 @@ body {
     font-size: 15vh; 
     margin-top: 5vh;  
 }
+.llista_fila {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.llista_fila div {    /* contenidor de la miniatura de la foto */
+    flex: 2;
+}
+.llista_fila img {    /* miniatura de la foto */
+    width: 10vmax;
+    height: 10vmax;
+    cursor: pointer;
+}
+.llista_fila span {    /* data i hora */
+    flex: 3;
+    font-size: 2vmax;
+}
+.llista_fila i {    /* icona per esborrar la foto */
+    flex: 1;
+    color: #F6F0F0;
+    font-size: 4vmax !important;
+    font-family: "Space Mono";
+    font-weight: 400;
+    cursor: pointer;
+}
