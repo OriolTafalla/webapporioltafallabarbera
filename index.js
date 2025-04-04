@@ -1,5 +1,6 @@
-let mapa = ""
-let seccio_origen= ""
+let mapa ;
+let seccio_origen ;
+let model, webcam, prediccions, maxPrediccions;
 
 function canvia_seccio(num_boto) {
     const menu = document.getElementById("menu");
@@ -251,3 +252,22 @@ let icon = L.icon({    // propietats de la icona
     iconSize: [mida, mida],    // mida de la icona
     iconAnchor: [mida / 2, ref_vertical]    // distàncies (horitzontal i vertical) des del punt superior esquerre de la icona fins al punt de localització
 }); 
+async function inicia_video() {
+    const codi_model = "*********"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
+    const tmURL = "https://teachablemachine.withgoogle.com/models/" + codi_model;
+    const modelURL = tmURL + "/model.json";
+    const metadataURL = tmURL + "/metadata.json";
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPrediccions = model.getTotalClasses();    // nombre de tipus d'imatges per reconèixer
+    webcam = new tmImage.Webcam(300, 300, true);    // posada en marxa de la webcam
+    await webcam.setup();
+    await webcam.play();
+    window.requestAnimationFrame(loop);    // bucle
+    document.getElementById("icona_video").style.display = "none";    // oculta la icona de la càmera de vídeo
+    document.getElementById("coincidencia").style.display = "flex";    // mostra el text amb la predicció de coincidències
+    document.getElementById("webcam-container").appendChild(webcam.canvas);
+    prediccions = document.getElementById("prediccions");
+    for (let i = 0; i < maxPrediccions; i++) {
+        prediccions.appendChild(document.createElement("div"));    // es crea un contenidor per a la coincidència de cada tipus d'imatge
+    }
+}
