@@ -23,6 +23,9 @@ body {
     font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
     color: white;    /* color del text */
     background-color:#17153B;    /* color de fons */
+    .ocult {
+    display: none !important;    /* amb prioritat sobre les declaracions condicionals segons l'orientació */
+    }
 }
 .seccio {
     flex: 1;    /* les seccions ocupen tot l'espai disponible */
