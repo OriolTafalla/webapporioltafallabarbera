@@ -159,3 +159,14 @@ function mostra_foto(id) {
     document.getElementById("div_gran").style.display = "flex";    // es mostra el contenidor de la foto a pantalla completa
 }
 //------------------------------------------------------------------------------------------------------------------------
+
+function retorn_a_seccio() {
+    document.getElementById("superior").classList.remove("ocult");    // s'elimina la classe provisional del contenidor superior
+    document.getElementById("menu").style.display = "flex";    // es mostra el menú
+    document.getElementById("div_gran").style.display = "none";    // s'oculta el contenidor de pantalla completa
+    if (seccio_origen == 2) {    // càmera
+        document.getElementById("seccio_2").style.display = "flex";
+    } else {    // galeria
+        document.getElementById("seccio_3").style.display = "flex";
+    }
+}
