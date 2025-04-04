@@ -192,3 +192,13 @@ function omple_llista() {
     }
 }
 //------------------------------------------------------------------------------------------------------------------------
+function esborra_foto(id) {
+    if (confirm("Vols esborrar la foto?")) {    // es demana la confirmació a l'usuari
+        indexedDB.open("Dades").onsuccess = event => {   
+                event.target.result.transaction("Fotos", "readwrite").objectStore("Fotos").delete(id).onsuccess = () => {
+                alert("La foto s'ha esborrat.");
+                canvia_seccio(3);    // es recarrega la galeria per tal que ja no mostri la foto esborrada
+            };
+        };
+    }
+}
