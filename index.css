@@ -23,10 +23,8 @@ body {
     font-size: 4vmax;    /* mida d'un 4% respecte l'alçària de la pantalla */
     color: white;    /* color del text */
     background-color:#17153B;    /* color de fons */
- /* amb prioritat sobre les declaracions condicionals segons l'orientació */
     .ocult {
     display: none !important;    /* amb prioritat sobre les declaracions condicionals segons l'orientació */
-    }
     }
 }
 .seccio {
@@ -241,7 +239,6 @@ body {
     font-size: 15vh; 
     margin-top: 5vh;  
 }
-
 .llista_fila {
     display: flex;
     text-align: center;
