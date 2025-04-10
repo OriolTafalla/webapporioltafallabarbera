@@ -253,7 +253,7 @@ let icon = L.icon({    // propietats de la icona
     iconAnchor: [mida / 2, ref_vertical]    // distàncies (horitzontal i vertical) des del punt superior esquerre de la icona fins al punt de localització
 }); 
 async function inicia_video() {
-    const codi_model = "*********"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
+    const codi_model = "https://teachablemachine.withgoogle.com/models/aC-EgiGmP/"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
     const tmURL = "https://teachablemachine.withgoogle.com/models/" + codi_model;
     const modelURL = tmURL + "/model.json";
     const metadataURL = tmURL + "/metadata.json";
@@ -269,5 +269,17 @@ async function inicia_video() {
     prediccions = document.getElementById("prediccions");
     for (let i = 0; i < maxPrediccions; i++) {
         prediccions.appendChild(document.createElement("div"));    // es crea un contenidor per a la coincidència de cada tipus d'imatge
+    }
+}
+async function loop() {
+    webcam.update();
+    await prediu();
+    window.requestAnimationFrame(loop);
+}
+async function prediu() {
+    const prediccio = await model.predict(webcam.canvas);
+    for (let i = 0; i < maxPrediccions; i++) {
+        const classe = prediccio[i].className + ": " + prediccio[i].probability.toFixed(2);    // es conserven dues xifres decimals
+        prediccions.childNodes[i].innerHTML = classe;
     }
 }
