@@ -40,15 +40,6 @@ function canvia_seccio(num_boto) {
          }
     }
 }
-
-//------------------------------------------------------------------------------------------------------------------------
-// Funció per iniciar la sessió
-function inici_sessio() {
-    validat = true;    // usuari validat
-    document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
-    canvia_seccio(1);    // es mostra la secció 1
-}
-
 //------------------------------------------------------------------------------------------------------------------------
 // Funció per iniciar la sessió amb les dades del formulari
 function inici_sessio() {
@@ -69,33 +60,13 @@ function inici_sessio() {
             }
         });
 }
-
-//------------------------------------------------------------------------------------------------------------------------
-function inici_sessio() {
-    nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
-    contrasenya = document.getElementById("contrasenya").value;
-    let consulta = scriptURL + "?query=select&where=usuari&is=" + nom + "&and=contrasenya&equal=" + contrasenya;
-    fetch(consulta)
-        .then((resposta) => {   // registres que contenen el nom d'usuari i contrasenya escrits per l'usuari
-            return resposta.json();    // conversió a llista
-        })
-        .then((resposta) => {
-            if(resposta.length == 0) {    // llista buida
-                window.alert("El nom d'usuari o la contrasenya no són correctes.");
-            }
-            else {    // llista amb (almenys) un registre
-                window.alert("S'ha iniciat correctament la sessió.");
-                inicia_sessio();    // usuari validat, s'executen les instruccions del procediment "inicia_sessio"
-            }
-        });    
-}
 //------------------------------------------------------------------------------------------------------------------------
 function inicia_sessio() {
     validat = true;    // usuari validat
     document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
     canvia_seccio(1);    // es mostra la secció 1
-}º
-
+}
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per tancar la sessió
 function tanca_sessio() {
     if (validat) {
@@ -107,7 +78,6 @@ function tanca_sessio() {
 }
 
 //------------------------------------------------------------------------------------------------------------------------
-// Funció que s'executa quan la pàgina es carrega
 window.onload = () => {
     let base_de_dades = storage.getItem("base_de_dades");
     if(base_de_dades == null) {
@@ -216,7 +186,6 @@ function geoExit(posicio) {
         alert("No s'ha pogut obtenir la ubicació");
     }
 }
-
 //------------------------------------------------------------------------------------------------------------------------
 let pixels = 24;    // nombre de píxels de la forma
 let mida = 2 * pixels;    // mida de visualització en el mapa
