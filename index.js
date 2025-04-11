@@ -5,13 +5,11 @@ let model, webcam, prediccions, maxPrediccions;
 let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
-// Variables globals
 let usuari;
 let geoID;
 let seccio_origen;
-let storage = localStorage; // Utilitza localStorage
-
-// Funció per canviar de secció
+let storage = localStorage;
+//------------------------------------------------------------------------------------------------------------------------
 function canvia_seccio(num_boto) {
     const menu = document.getElementById("menu");
     const num_botons = menu.children.length;    // el nombre de botons dins de l'element "menu"
@@ -43,6 +41,7 @@ function canvia_seccio(num_boto) {
     }
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per iniciar la sessió
 function inici_sessio() {
     validat = true;    // usuari validat
@@ -50,6 +49,7 @@ function inici_sessio() {
     canvia_seccio(1);    // es mostra la secció 1
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per iniciar la sessió amb les dades del formulari
 function inici_sessio() {
     nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
@@ -70,6 +70,7 @@ function inici_sessio() {
         });
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 function inici_sessio() {
     nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
     contrasenya = document.getElementById("contrasenya").value;
@@ -248,17 +249,23 @@ async function inicia_video() {
         prediccions.appendChild(document.createElement("div"));    // es crea un contenidor per a la coincidència de cada tipus d'imatge
     }
 }
+
+//------------------------------------------------------------------------------------------------------------------------
 async function loop() {
     webcam.update();
     await prediu();
     window.requestAnimationFrame(loop);
 }
+
+//------------------------------------------------------------------------------------------------------------------------
 async function prediu() {
     const prediccio = await model.predict(webcam.canvas);
     for (let i = 0; i < maxPrediccions; i++) {
         const classe = prediccio[i].className + ": " + prediccio[i].probability.toFixed(2);    // es conserven dues xifres decimals
         prediccions.childNodes[i].innerHTML = classe;
     }
+    
+//------------------------------------------------------------------------------------------------------------------------
 function mostra_diagrama() {
     if (!canvas_creat) {    // només si no s'ha creat anteriorment
         diagrama = new Chart(document.getElementById("diagrama"), {
