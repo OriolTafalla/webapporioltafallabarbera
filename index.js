@@ -4,6 +4,8 @@ let model, webcam, prediccions, maxPrediccions;
 let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
+let scriptURL = "https://script.google.com/macros/s/AKfycbxwwdLaNC7X4kTd4CgYZuFWoKkC8x_zacmsgmLoUvNX-uuw9xNofSUprZpmTO-OyvDZ/exec"
+
 
 function canvia_seccio(num_boto) {
     const menu = document.getElementById("menu");
