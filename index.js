@@ -24,9 +24,9 @@ function canvia_seccio(num_boto) {
             seccio.style.display = "flex";    // es fa visible la secció activa
         }
         else {
-            boto.style.color = "white";    // colors dels botons de seccions inactives
-            boto.style.backgroundColor = "#950E17";
-            seccio.style.display = "none";    // s'oculten les seccions inactives
+            boto.style.color = "#F6F0F0";    // colors dels botons de seccions inactives
+             boto.style.backgroundColor = "#17153B";
+             seccio.style.display = "none";    // s'oculten les seccions inactives
         }
     }
     if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
@@ -70,34 +70,30 @@ function inici_sessio() {
         });
 }
 
-// Funció per crear un nou usuari
-function nou_usuari() {
-    nom = document.getElementById("nom_usuari").value;
+function inici_sessio() {
+    nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
     contrasenya = document.getElementById("contrasenya").value;
-    let consulta_1 = scriptURL + "?query=select&where=usuari&is=" + nom;    // primera consulta per saber si ja existeix algun usuari amb el nom escrit per l'usuari que es vol registrar
-    fetch(consulta_1)
-        .then((resposta) => {
-            return resposta.json();
+    let consulta = scriptURL + "?query=select&where=usuari&is=" + nom + "&and=contrasenya&equal=" + contrasenya;
+    fetch(consulta)
+        .then((resposta) => {   // registres que contenen el nom d'usuari i contrasenya escrits per l'usuari
+            return resposta.json();    // conversió a llista
         })
         .then((resposta) => {
-            if(resposta.length == 0) {    // No hi ha cap altre usuari amb el mateix nom
-                let consulta_2 = scriptURL + "?query=insert&values=" + nom + "$$" + contrasenya;    // segona consulta per registrar l'usuari nou
-                fetch(consulta_2)
-                    .then((resposta) => {
-                        if (resposta.ok) {    // s'ha pogut afegir un registre en la base de dades
-                            window.alert("S'ha completat el registre d'usuari.");
-                            inicia_sessio();
-                        }
-                        else {    // no s'ha pogut afegir un registre en la base de dades
-                            alert("S'ha produït un error en el registre d'usuari.");
-                        }
-                    });
-            } 
-            else {    // l'usuari ha de tornar-ho a intentar amb un nom diferent
-                alert("Ja existeix un usuari amb aquest nom.");
+            if(resposta.length == 0) {    // llista buida
+                window.alert("El nom d'usuari o la contrasenya no són correctes.");
             }
-        });
+            else {    // llista amb (almenys) un registre
+                window.alert("S'ha iniciat correctament la sessió.");
+                inicia_sessio();    // usuari validat, s'executen les instruccions del procediment "inicia_sessio"
+            }
+        });    
 }
+//------------------------------------------------------------------------------------------------------------------------
+function inicia_sessio() {
+    validat = true;    // usuari validat
+    document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
+    canvia_seccio(1);    // es mostra la secció 1
+}º
 
 // Funció per tancar la sessió
 function tanca_sessio() {
@@ -109,6 +105,7 @@ function tanca_sessio() {
     }
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció que s'executa quan la pàgina es carrega
 window.onload = () => {
     let base_de_dades = storage.getItem("base_de_dades");
@@ -141,6 +138,7 @@ window.onload = () => {
     }).addTo(mapa);    // s'afegeix la capa al mapa
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per desa la foto a la base de dades
 function desa_foto() {
     let nou_registre = {    // contingut del nou registre de la base de dades
@@ -156,6 +154,7 @@ function desa_foto() {
     };
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per mostrar la foto
 function mostra_foto(id) {
     let canvas = document.getElementById("canvas");
@@ -183,6 +182,7 @@ function mostra_foto(id) {
     };
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per omplir la galeria de fotos
 function omple_llista() {
     let lista_fotos = document.getElementById("llista_fotos");
@@ -204,6 +204,7 @@ function omple_llista() {
     };
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 // Funció per sortir de la sessió de forma segura
 function geoExit(posicio) {
     geoID = posicio.coords;    // obtenir dades geogràfiques
@@ -215,6 +216,7 @@ function geoExit(posicio) {
     }
 }
 
+//------------------------------------------------------------------------------------------------------------------------
 let pixels = 24;    // nombre de píxels de la forma
 let mida = 2 * pixels;    // mida de visualització en el mapa
 let ref_vertical = mida / 2;    // distància vertical des del punt superior de la icona fins al punt de la localització
@@ -276,6 +278,8 @@ function mostra_diagrama() {
         canvas_creat = true;
     } 
 }
+    
+//------------------------------------------------------------------------------------------------------------------------
 function peticio() {
     const canal = "2897205";    // s'han de substituir els asteriscs pel codi del canal
     const camp = "1";    // el camp 1 (nivell de llum)
