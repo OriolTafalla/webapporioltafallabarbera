@@ -4,18 +4,21 @@ let model, webcam, prediccions, maxPrediccions;
 let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
-let validat = false;    // variable que permet saber si hi ha algun usuari validat
-let nom, contrasenya;
-let scriptURL = "https://script.google.com/macros/s/AKfycby00Npvl7EcayU1NT1c7mIB1UPZiTdl0ByFTK9DbXJrTiWsAiaPFBzRlI28CXks87gv/exec"    // s'ha de substituir la cadena de text per la URL del script
-let usuari;
-let geoID;
-let seccio_origen;
-let storage = localStorage; // Utilitza localStorage
 
 function canvia_seccio(num_boto) {
     const menu = document.getElementById("menu");
     const num_botons = menu.children.length;    // el nombre de botons dins de l'element "menu"
-    
+     if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
+        omple_llista();
+        }
+        if (num_boto == 4) {
+    mapa.invalidateSize();
+    if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
+        navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
+    }
+                if (num_boto == 6) {
+        mostra_diagrama();
+    }
     for (let i = 1; i < num_botons; i++) {
         let boto = document.getElementById("boto_" + i);
         let seccio = document.getElementById("seccio_" + i);
@@ -31,21 +34,12 @@ function canvia_seccio(num_boto) {
             boto.style.backgroundColor = "#17153B";
             seccio.style.display = "none";    // s'oculten les seccions inactives
         }
-    if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
-        omple_llista();
-        }
-        if (num_boto == 4) {
-    mapa.invalidateSize();
-    if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
-        navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
-    }
-    if (num_boto == 6) {
-     mostra_diagrama();
-    }
     }
 }
 //------------------------------------------------------------------------------------------------------------------------
-
+let validat = false;    // variable que permet saber si hi ha algun usuari validat
+let nom, contrasenya;
+let scriptURL = "https://script.google.com/macros/s/AKfycby00Npvl7EcayU1NT1c7mIB1UPZiTdl0ByFTK9DbXJrTiWsAiaPFBzRlI28CXks87gv/exec"    // s'ha de substituir la cadena de text per la URL del script
 //------------------------------------------------------------------------------------------------------------------------
 function inici_sessio() {
     nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
@@ -234,7 +228,6 @@ function esborra_foto(id) {
         };
     }
 }
-
 let vegueries = [[41.39, 2.17, "Àmbit metropolità (Barcelona)"],    // llista on cada element és una llista amb els valors de latitud, longitud i nom de vegueria com a elements
                  [42.17, 0.89, "Alt Pirineu i Aran (Tremp)"],
                  [41.12, 1.24, "Camp de Tarragona (Tarragona)"],
@@ -246,7 +239,6 @@ let vegueries = [[41.39, 2.17, "Àmbit metropolità (Barcelona)"],    // llista 
 for (i in vegueries) {    // per cada element de la llista
     L.marker([vegueries[i][0], vegueries[i][1]],{title:vegueries[i][2]}).addTo(mapa);
 }
-
 function geoExit(posicio){
     let latitud = posicio.coords.latitude;
     let longitud = posicio.coords.longitude;
@@ -269,7 +261,7 @@ let icon = L.icon({    // propietats de la icona
     iconAnchor: [mida / 2, ref_vertical]    // distàncies (horitzontal i vertical) des del punt superior esquerre de la icona fins al punt de localització
 }); 
 async function inicia_video() {
-    const codi_model = "aC-EgiGmP"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
+    const codi_model = "https://teachablemachine.withgoogle.com/models/aC-EgiGmP/"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
     const tmURL = "https://teachablemachine.withgoogle.com/models/" + codi_model;
     const modelURL = tmURL + "/model.json";
     const metadataURL = tmURL + "/metadata.json";
@@ -308,7 +300,7 @@ function mostra_diagrama() {
                         {
                             data : valors[1],    // valors mesurats
                             label : "Nivell de llum",    // títol del diagrama
-                            borderColor : "white",    // color de la línia
+                            borderColor : "blue",    // color de la línia
                         }]
             },
         });
