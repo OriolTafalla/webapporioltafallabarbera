@@ -4,7 +4,9 @@ let model, webcam, prediccions, maxPrediccions;
 let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
-let scriptURL = "https://script.google.com/macros/s/AKfycbxwwdLaNC7X4kTd4CgYZuFWoKkC8x_zacmsgmLoUvNX-uuw9xNofSUprZpmTO-OyvDZ/exec"
+let validat = false;    // variable que permet saber si hi ha algun usuari validat
+let nom, contrasenya;
+let scriptURL = "https://script.google.com/macros/s/AKfycby00Npvl7EcayU1NT1c7mIB1UPZiTdl0ByFTK9DbXJrTiWsAiaPFBzRlI28CXks87gv/exec"    // s'ha de substituir la cadena de text per la URL del script
 let usuari;
 let geoID;
 let seccio_origen;
@@ -17,17 +19,6 @@ function canvia_seccio(num_boto) {
     for (let i = 1; i < num_botons; i++) {
         let boto = document.getElementById("boto_" + i);
         let seccio = document.getElementById("seccio_" + i);
-         if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
-        omple_llista();
-        }
-        if (num_boto == 4) {
-    mapa.invalidateSize();
-    if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
-        navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
-    }
-                if (num_boto == 6) {
-        mostra_diagrama();
-    }
         if (i == num_boto) {
             boto.style.color = "#17153B";    // es destaca la secció activa amb el canvi de colors del botó corresponent
             boto.style.backgroundColor = "#F6F0F0";
@@ -40,12 +31,21 @@ function canvia_seccio(num_boto) {
             boto.style.backgroundColor = "#17153B";
             seccio.style.display = "none";    // s'oculten les seccions inactives
         }
+    if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
+        omple_llista();
+        }
+        if (num_boto == 4) {
+    mapa.invalidateSize();
+    if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
+        navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
+    }
+    if (num_boto == 6) {
+     mostra_diagrama();
+    }
     }
 }
 //------------------------------------------------------------------------------------------------------------------------
-let validat = false;    // variable que permet saber si hi ha algun usuari validat
-let nom, contrasenya;
-let scriptURL = "https://script.google.com/macros/s/AKfycby00Npvl7EcayU1NT1c7mIB1UPZiTdl0ByFTK9DbXJrTiWsAiaPFBzRlI28CXks87gv/exec"    // s'ha de substituir la cadena de text per la URL del script
+
 //------------------------------------------------------------------------------------------------------------------------
 function inici_sessio() {
     nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
