@@ -263,7 +263,7 @@ let icon = L.icon({    // propietats de la icona
     iconAnchor: [mida / 2, ref_vertical]    // distàncies (horitzontal i vertical) des del punt superior esquerre de la icona fins al punt de localització
 }); 
 async function inicia_video() {
-    const codi_model = "https://teachablemachine.withgoogle.com/models/aC-EgiGmP/"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
+    const codi_model = "aC-EgiGmP"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
     const tmURL = "https://teachablemachine.withgoogle.com/models/" + codi_model;
     const modelURL = tmURL + "/model.json";
     const metadataURL = tmURL + "/metadata.json";
