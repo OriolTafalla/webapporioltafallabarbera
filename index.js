@@ -1,7 +1,10 @@
 let validat = false;    // variable que permet saber si hi ha algun usuari validat
 let nom, contrasenya;
 let scriptURL = "https://script.google.com/macros/s/AKfycbxwwdLaNC7X4kTd4CgYZuFWoKkC8x_zacmsgmLoUvNX-uuw9xNofSUprZpmTO-OyvDZ/exec";    // s'ha de substituir la cadena de text per la URL del script
-
+let model, webcam, prediccions, maxPrediccions;
+let canvas_creat = false;
+let diagrama;
+let valors = [[],[]];
 // Variables globals
 let usuari;
 let geoID;
@@ -34,7 +37,9 @@ function canvia_seccio(num_boto) {
         if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
             navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
         }
-    
+    if (num_boto == 6) {
+        mostra_diagrama();
+         }
     }
 }
 
