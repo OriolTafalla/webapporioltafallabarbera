@@ -5,12 +5,19 @@ let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
 let scriptURL = "https://script.google.com/macros/s/AKfycbxwwdLaNC7X4kTd4CgYZuFWoKkC8x_zacmsgmLoUvNX-uuw9xNofSUprZpmTO-OyvDZ/exec"
-
+let usuari;
+let geoID;
+let seccio_origen;
+let storage = localStorage; // Utilitza localStorage
 
 function canvia_seccio(num_boto) {
     const menu = document.getElementById("menu");
     const num_botons = menu.children.length;    // el nombre de botons dins de l'element "menu"
-     if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
+    
+    for (let i = 1; i < num_botons; i++) {
+        let boto = document.getElementById("boto_" + i);
+        let seccio = document.getElementById("seccio_" + i);
+         if (num_boto == 3) {    // si es prem el botó de la secció "Galeria"
         omple_llista();
         }
         if (num_boto == 4) {
@@ -21,9 +28,6 @@ function canvia_seccio(num_boto) {
                 if (num_boto == 6) {
         mostra_diagrama();
     }
-    for (let i = 1; i < num_botons; i++) {
-        let boto = document.getElementById("boto_" + i);
-        let seccio = document.getElementById("seccio_" + i);
         if (i == num_boto) {
             boto.style.color = "#17153B";    // es destaca la secció activa amb el canvi de colors del botó corresponent
             boto.style.backgroundColor = "#F6F0F0";
