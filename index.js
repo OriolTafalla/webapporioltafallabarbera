@@ -228,6 +228,7 @@ function esborra_foto(id) {
         };
     }
 }
+
 let vegueries = [[41.39, 2.17, "Àmbit metropolità (Barcelona)"],    // llista on cada element és una llista amb els valors de latitud, longitud i nom de vegueria com a elements
                  [42.17, 0.89, "Alt Pirineu i Aran (Tremp)"],
                  [41.12, 1.24, "Camp de Tarragona (Tarragona)"],
@@ -239,6 +240,7 @@ let vegueries = [[41.39, 2.17, "Àmbit metropolità (Barcelona)"],    // llista 
 for (i in vegueries) {    // per cada element de la llista
     L.marker([vegueries[i][0], vegueries[i][1]],{title:vegueries[i][2]}).addTo(mapa);
 }
+
 function geoExit(posicio){
     let latitud = posicio.coords.latitude;
     let longitud = posicio.coords.longitude;
@@ -300,7 +302,7 @@ function mostra_diagrama() {
                         {
                             data : valors[1],    // valors mesurats
                             label : "Nivell de llum",    // títol del diagrama
-                            borderColor : "blue",    // color de la línia
+                            borderColor : "white",    // color de la línia
                         }]
             },
         });
