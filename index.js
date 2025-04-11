@@ -16,7 +16,7 @@ function canvia_seccio(num_boto) {
     if (typeof geoID === "undefined") {    // si encara no s'han obtingut les dades de localització del dispositiu
         navigator.geolocation.watchPosition(geoExit);    // inicia el seguiment de la localització del dispositiu
     }
-     if (num_boto == 6) {
+                if (num_boto == 6) {
         mostra_diagrama();
     }
     for (let i = 1; i < num_botons; i++) {
@@ -108,7 +108,7 @@ window.onload = () => {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {    // capa d'OpenStreetMap
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'    // autoria de la capa
     addTo(mapa);
-
+    }
     // s'afegeix la capa al mapa
     let base_de_dades = storage.getItem("base_de_dades");   
     if(base_de_dades == null) {
@@ -132,8 +132,7 @@ window.onload = () => {
                 document.getElementById("icona_camera").style.display = "none";    // s'oculta la icona que hi havia abans de fer la foto
                 document.getElementById("desa").style.display = "unset";    // es mostra el botó per desar la foto
             }
-        }
-     });
+        });
 }
 //------------------------------------------------------------------------------------------------------------------------
 function desa_foto() {
