@@ -188,28 +188,29 @@ function omple_llista() {
 
 //------------------------------------------------------------------------------------------------------------------------
 // Funció per sortir de la sessió de forma segura
-function geoExit(posicio) {
-    geoID = posicio.coords;    // obtenir dades geogràfiques
-    if (typeof geoID !== "undefined") {
-        console.log(geoID);
-    }
-    else {
-        alert("No s'ha pogut obtenir la ubicació");
-    }
-}
-//------------------------------------------------------------------------------------------------------------------------
-let pixels = 24;    // nombre de píxels de la forma
-let mida = 2 * pixels;    // mida de visualització en el mapa
-let ref_vertical = mida / 2;    // distància vertical des del punt superior de la icona fins al punt de la localització
-let color = "#17153B";
-let path = "M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z";    // cadena de text de la forma
-let cadenaSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + pixels + ' ' + pixels + '"><path d="' + path + '" fill="' + color + '" /></svg>';    // construcció de l'element SVG
-let icona = encodeURI("data:image/svg+xml," + cadenaSVG);    // codificació d'espais i caràcters especials per formar una URL vàlida
-let icon = L.icon({    // propietats de la icona
+function geoExit(posicio){
+    let latitud = posicio.coords.latitude;
+    let longitud = posicio.coords.longitude;
+    let pixels = 24;    // nombre de píxels de la forma
+    let mida = 2 * pixels;    // mida de visualització en el mapa
+    let ref_vertical = mida / 2;    // distància vertical des del punt superior de la icona fins al punt de la localització
+    let color = "#17153B";
+    let path = "M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z";    // cadena de text de la forma
+    let cadenaSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + pixels + ' ' + pixels + '"><path d="' + path + '" fill="' + color + '" /></svg>';    // construcció de l'element SVG
+    let icona = encodeURI("data:image/svg+xml," + cadenaSVG);    // codificació d'espais i caràcters especials per formar una URL vàlida
+    let icon = L.icon({    // propietats de la icona
     iconUrl: icona,    // URL de la forma
     iconSize: [mida, mida],    // mida de la icona
     iconAnchor: [mida / 2, ref_vertical]    // distàncies (horitzontal i vertical) des del punt superior esquerre de la icona fins al punt de localització
-}); 
+    }); 
+    if (typeof geoID === "undefined") {    
+        geoID = L.marker([latitud, longitud], {icon:icon, zIndexOffset:100, title:"Usuari"}).addTo(mapa);    // es defineix el marcador  geoID i es situa per sobre dels altres
+    } else {    // primeres dades de localització, es crea el marcador d'usuari 
+        geoID.setLatLng([latitud, longitud]);    // actualització de la posició del marcador d'usuari en el mapa
+    }
+}
+//------------------------------------------------------------------------------------------------------------------------
+
 async function inicia_video() {
     const codi_model = "aC-EgiGmP"    // substitueix els asteriscs pel codi del model d'IA que vas crear en una activitat anterior
     const tmURL = "https://teachablemachine.withgoogle.com/models/" + codi_model;
