@@ -243,9 +243,8 @@ body {
 #div_diagrama {
     width: 80vmin;
     font-size: 5vh;
-    display: block;
     text-align: center;
-    font-family: "sans-serif";
+    font-family: sans-serif;
 }
 #div_valor {
     font-size: 15vh; 
