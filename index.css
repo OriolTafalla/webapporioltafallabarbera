@@ -242,7 +242,8 @@ body {
 }
 #div_diagrama {
     width: 80vmin;
-    font-size: 5vh;   
+    font-size: 5vh;
+    display: block;
     text-align: center;
 }
 #div_valor {
