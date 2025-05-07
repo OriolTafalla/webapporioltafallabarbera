@@ -246,45 +246,33 @@ async function prediu() {
         prediccions.childNodes[i].innerHTML = classe;
     }
     
-//------------------------------------------------------------------------------------------------------------------------
 function mostra_diagrama() {
-    if (!canvas_creat) {    // només si no s'ha creat anteriorment
+    if (!canvas_creat) {
         diagrama = new Chart(document.getElementById("diagrama"), {
-            type : 'line',    // tipus de diagrama
+            type : 'line',
             data : {
-                labels : valors[0],    // etiquetes de l'eix X
+                labels : valors[0],
                 datasets : [
                         {
-                            data : valors[1],    // valors mesurats
-                            label : "Nivell de llum",    // títol del diagrama
-                            borderColor : "blue",    // color de la línia
+                            data : valors[1],
+                            label : "Nivell de llum",
+                            borderColor : "blue",
                         }]
-            },
+            }
         });
-        peticio();    // funció que sol·licita el valor més recent del canal de ThingSpeak
-        setInterval(peticio, 20000);    // es sol·licita un valor cada 20 segons, un interval de temps adient per a l'entorn ThingSpeak
+        //setInterval(peticio, 16000);  
         canvas_creat = true;
     } 
 }
-    
-//------------------------------------------------------------------------------------------------------------------------
+
 function peticio() {
-    const canal = "2897205";    // s'han de substituir els asteriscs pel codi del canal
-    const camp = "1";    // el camp 1 (nivell de llum)
-    const max_dades = 10;    // nombre de valors que es volen visualitzar simultàniament
-    const ts_url = "https://api.thingspeak.com/channels/" + canal + "/fields/" + camp + "/last.json"    // url que sol·licita el valor més recent
+    const canal = "2897205";
+    const camp = "1";
+    const ts_url = "https://api.thingspeak.com/channels/" + canal + "/fields/" + camp + "/last.json"
     fetch(ts_url)
         .then(resposta => resposta.json())
         .then(resposta => {
-            let valor = Number(resposta["field1"]);    // converteix el tipus de valor rebut (text) en nombre.
-            document.getElementById("div_valor").innerHTML = valor;
-            if (valors[0].length >= max_dades) {
-                valors[0].shift();    // elimina el primer valor de la llista d'etiquetes
-                valors[1].shift();    // elimina el primer valor de la llista de valors
-            }
-            valors[0].push(new Date().toLocaleTimeString());    // afegeix l'hora actual a la llista d'etiquetes
-            valors[1].push(valor);    // afegeix el valor rebut a la llista de valors
-            diagrama.update();    // actualitza el diagrama d'acord amb el valor rebut
+            document.getElementById("div_valor").innerHTML = Number(resposta["field1"]);
+            actualitza_diagrama(Number(resposta["field1"]));
         });
-}
 }
