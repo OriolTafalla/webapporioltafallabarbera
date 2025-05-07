@@ -246,6 +246,7 @@ async function prediu() {
         prediccions.childNodes[i].innerHTML = classe;
     }
     
+//------------------------------------------------------------------------------------------------------------------------
 function mostra_diagrama() {
     if (!canvas_creat) {    // només si no s'ha creat anteriorment
         diagrama = new Chart(document.getElementById("diagrama"), {
@@ -255,7 +256,7 @@ function mostra_diagrama() {
                 datasets : [
                         {
                             data : valors[1],    // valors mesurats
-                            label : "Nivell de llum d'Oriol Tafalla",    // títol del diagrama
+                            label : "Nivell de llum",    // títol del diagrama
                             borderColor : "blue",    // color de la línia
                         }]
             },
@@ -265,7 +266,8 @@ function mostra_diagrama() {
         canvas_creat = true;
     } 
 }
-
+    
+//------------------------------------------------------------------------------------------------------------------------
 function peticio() {
     const canal = "2897205";    // s'han de substituir els asteriscs pel codi del canal
     const camp = "1";    // el camp 1 (nivell de llum)
