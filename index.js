@@ -5,7 +5,7 @@ let model, webcam, prediccions, maxPrediccions;
 let canvas_creat = false;
 let diagrama;
 let valors = [[],[]];
-
+//--------------------------------------------------------------------
 function canvia_seccio(num_boto) {
     
     const menu = document.getElementById("menu");
@@ -38,7 +38,7 @@ function canvia_seccio(num_boto) {
     }
     
 }
-
+//--------------------------------------------------------------------
 function inici_sessio() {
     nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
     contrasenya = document.getElementById("contrasenya").value;
@@ -63,7 +63,7 @@ function inicia_sessio() {
     document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
     canvia_seccio(1);    // es mostra la secció 1
 }
-
+//--------------------------------------------------------------------
 function nou_usuari() {
     nom = document.getElementById("nom_usuari").value;
     contrasenya = document.getElementById("contrasenya").value;
@@ -91,7 +91,7 @@ function nou_usuari() {
             }
         });
 }
-
+//--------------------------------------------------------------------
 function tanca_sessio() {
     if (validat) {
         if (confirm("Vols tancar la sessió?")) {    // S'ha respost "Sí"
@@ -100,7 +100,7 @@ function tanca_sessio() {
         }
     }
 }
-
+//--------------------------------------------------------------------
 window.onload = () => { 
     mapa = L.map("seccio_4").setView([41.72, 1.82], 8);    // assigna el mapa a la secció, centrat en el punt i amb el nivell de zoom
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {    // capa d'OpenStreetMap
@@ -144,7 +144,7 @@ for (i in vegueries) {    // per cada element de la llista
     });
     
 }
-
+//--------------------------------------------------------------------
 function desa_foto() {
     let nou_registre = {    // contingut del nou registre de la base de dades
         Usuari: usuari,    // nom d'usuari
@@ -158,7 +158,7 @@ function desa_foto() {
         };
     };
 }
-
+//--------------------------------------------------------------------
 function mostra_foto(id) {
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
@@ -194,7 +194,7 @@ function mostra_foto(id) {
     document.getElementById("menu").style.display = "none";    // s'oculta el menú
     document.getElementById("div_gran").style.display = "flex";    // es mostra el contenidor de la foto a pantalla completa
 }
-
+//--------------------------------------------------------------------
 function retorn_a_seccio() {
     document.getElementById("superior").classList.remove("ocult");    // s'elimina la classe provisional del contenidor superior
     document.getElementById("menu").style.display = "flex";    // es mostra el menú
@@ -205,7 +205,7 @@ function retorn_a_seccio() {
         document.getElementById("seccio_3").style.display = "flex";
     }
 }
-
+//--------------------------------------------------------------------
 function omple_llista() {
     let llista = '';
     indexedDB.open("Dades").onsuccess = event => {
@@ -226,7 +226,7 @@ function omple_llista() {
         }
     }
 }
-
+//--------------------------------------------------------------------
 function esborra_foto(id) {
     if (confirm("Vols esborrar la foto?")) {    // es demana la confirmació a l'usuari
         indexedDB.open("Dades").onsuccess = event => {   
@@ -237,7 +237,7 @@ function esborra_foto(id) {
         };
     }
 }
-
+//--------------------------------------------------------------------
 function geoExit(posicio){
     let latitud = posicio.coords.latitude;
     let longitud = posicio.coords.longitude;
@@ -313,7 +313,7 @@ function mostra_diagrama() {
         canvas_creat = true;
     } 
 }
-
+//--------------------------------------------------------------------
 function peticio() {
     const canal = "2897205";    // s'han de substituir els asteriscs pel codi del canal
     const camp = "1";    // el camp 1 (nivell de llum)
