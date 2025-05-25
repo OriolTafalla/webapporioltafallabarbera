@@ -39,31 +39,6 @@ function canvia_seccio(num_boto) {
     
 }
 //--------------------------------------------------------------------
-function inici_sessio() {
-    nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
-    contrasenya = document.getElementById("contrasenya").value;
-    let consulta = scriptURL + "?query=select&where=usuari&is=" + nom + "&and=contrasenya&equal=" + contrasenya;
-    fetch(consulta)
-        .then((resposta) => {   // registres que contenen el nom d'usuari i contrasenya escrits per l'usuari
-            return resposta.json();    // conversió a llista
-        })
-        .then((resposta) => {
-            if(resposta.length == 0) {    // llista buida
-                window.alert("El nom d'usuari o la contrasenya no són correctes.");
-            }
-            else {    // llista amb (almenys) un registre
-                window.alert("S'ha iniciat correctament la sessió.");
-                inicia_sessio();    // usuari validat, s'executen les instruccions del procediment "inicia_sessio"
-            }
-        });    
-}
-
-function inicia_sessio() {
-    validat = true;    // usuari validat
-    document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
-    canvia_seccio(1);    // es mostra la secció 1
-}
-//--------------------------------------------------------------------
 function nou_usuari() {
     nom = document.getElementById("nom_usuari").value;
     contrasenya = document.getElementById("contrasenya").value;
@@ -90,6 +65,31 @@ function nou_usuari() {
                 alert("Ja existeix un usuari amb aquest nom.");
             }
         });
+}
+//--------------------------------------------------------------------
+function inici_sessio() {
+    nom = document.getElementById("nom_usuari").value;    // la propietat "value" d'un quadre de text correspon al text escrit per l'usuari
+    contrasenya = document.getElementById("contrasenya").value;
+    let consulta = scriptURL + "?query=select&where=usuari&is=" + nom + "&and=contrasenya&equal=" + contrasenya;
+    fetch(consulta)
+        .then((resposta) => {   // registres que contenen el nom d'usuari i contrasenya escrits per l'usuari
+            return resposta.json();    // conversió a llista
+        })
+        .then((resposta) => {
+            if(resposta.length == 0) {    // llista buida
+                window.alert("El nom d'usuari o la contrasenya no són correctes.");
+            }
+            else {    // llista amb (almenys) un registre
+                window.alert("S'ha iniciat correctament la sessió.");
+                inicia_sessio();    // usuari validat, s'executen les instruccions del procediment "inicia_sessio"
+            }
+        });    
+}
+
+function inicia_sessio() {
+    validat = true;    // usuari validat
+    document.getElementById("seccio_0").style.display = "none";    // s'oculta la secció de validació d'usuaris
+    canvia_seccio(1);    // es mostra la secció 1
 }
 //--------------------------------------------------------------------
 function tanca_sessio() {
