@@ -238,7 +238,7 @@ function esborra_foto(id) {
         };
     }
 }
-//--------------------------------------------------------------------
+//---------------------------------------------------------------------
 function geoExit(posicio){
     let latitud = posicio.coords.latitude;
     let longitud = posicio.coords.longitude;
