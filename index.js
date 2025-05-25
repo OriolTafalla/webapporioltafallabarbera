@@ -287,12 +287,19 @@ async function loop() {
 }
 
 async function prediu() {
-    const prediccio = await model.predict(webcam.canvas);
-    for (let i = 0; i < maxPrediccions; i++) {
-        const classe = prediccio[i].className + ": " + prediccio[i].probability.toFixed(2);    // es conserven dues xifres decimals
-        prediccions.childNodes[i].innerHTML = classe;
+    try {
+        const prediccio = await model.predict(webcam.canvas);
+        for (let i = 0; i < Math.min(maxPrediccions, prediccio.length, prediccions.childNodes.length); i++) {
+            // Substituir "é" per "è" al nom de la classe
+            const nomClasse = prediccio[i].className.replace(/é/g, "è");
+            const classe = nomClasse + ": " + prediccio[i].probability.toFixed(2);
+            prediccions.childNodes[i].innerHTML = classe;
+        }
+    } catch (error) {
+        console.error("Error en la predicció:", error);
     }
 }
+
 
 function mostra_diagrama() {
     if (!canvas_creat) {    // només si no s'ha creat anteriorment
