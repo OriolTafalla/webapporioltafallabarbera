@@ -94,10 +94,9 @@ function inicia_sessio() {
 //--------------------------------------------------------------------
 function tanca_sessio() {
     if (validat) {
-        let confirmar_sortir = window.confirm("Vols tancar la sessió?");
-        if (confirmar_sortir) {
+        if (confirm("Vols tancar la sessió?")) {    // S'ha respost "Sí"
             storage.setItem("usuari", "");
-            location.reload();
+            location.reload();    // recàrrega de la pàgina, es reinicialitzen totes les variables
         }
     }
 }
