@@ -290,15 +290,16 @@ async function prediu() {
     try {
         const prediccio = await model.predict(webcam.canvas);
         for (let i = 0; i < Math.min(maxPrediccions, prediccio.length, prediccions.childNodes.length); i++) {
-            // Substituir "é" per "è" al nom de la classe
-            const nomClasse = prediccio[i].className.replace(/é/g, "è");
-            const classe = nomClasse + ": " + prediccio[i].probability.toFixed(2);
+            // Substituir "é" per "è" directament al nom de la classe
+            const classeCorregida = prediccio[i].className.replace(/é/g, "è");
+            const classe = classeCorregida + ": " + prediccio[i].probability.toFixed(2);
             prediccions.childNodes[i].innerHTML = classe;
         }
     } catch (error) {
         console.error("Error en la predicció:", error);
     }
 }
+
 
 
 function mostra_diagrama() {
