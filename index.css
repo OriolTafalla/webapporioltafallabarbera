@@ -94,56 +94,6 @@ body {
     font-size: 5vmax;
     cursor: pointer;    /* en ordinadors, indica que s'hi pot fer clic */
 }
-@media (orientation: landscape) {
-    body {
-        flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
-        flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
-    }
-    #superior {
-        display: none;    /* franja superior oculta per optimitzar l'espai */
-    }
-    #menu {
-        flex-direction: column;
-        width: 8vmax;
-        height: auto;    /* sobreescriu la declaració height: 8vmax; */
-    }
-        #seccio_2 {
-        flex-direction: row;
-    }
-        #seccio_3 {
-        flex-direction: row;
-    }
-        #seccio_4 {
-        flex-direction: row;
-    }
-        #seccio_1 {
-        flex-direction: row;
-    }
-        #seccio_6 {
-        flex-direction: row;
-    }
-    #div_foto {
-        flex-direction: column;
-    }
-    #div_control {
-        width: 25vmax;
-        height: auto;
-        flex-direction: column;
-    }
-    #div_gran {
-        max-height: 100vh;
-        max-height: 100svh;
-    }
-    #foto_gran {
-        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
-    }
-    #llista_fotos {
-        height: 70vmin;
-    }
-    #seccio_5 {
-        flex-direction: row;
-    }
-}
 #div_foto {
     flex: 1;
     display: flex;
@@ -274,4 +224,54 @@ body {
     font-family: "Space Mono";
     font-weight: 400;
     cursor: pointer;
+}
+@media (orientation: landscape) {
+    body {
+        flex-direction: row;    /* sobreescriu la declaració flex-direction: column; */
+        flex-flow: row-reverse;    /* disposició de dreta a esquerra, per mostrar el menú a l'esquerra */
+    }
+    #superior {
+        display: none;    /* franja superior oculta per optimitzar l'espai */
+    }
+    #menu {
+        flex-direction: column;
+        width: 8vmax;
+        height: auto;    /* sobreescriu la declaració height: 8vmax; */
+    }
+    #seccio_2 {
+        flex-direction: row;
+    }
+    #div_foto {
+        flex-direction: column;
+    }
+    #div_control {
+        width: 25vmax;
+        height: auto;
+        flex-direction: column;
+    }
+    #div_gran {
+        max-height: 100vh;
+        max-height: 100svh;
+    }
+    #foto_gran {
+        transform: rotate(-90deg);    /* gir de 90 graus correponent al canvi d'orientació */
+    }
+    #llista_fotos {
+        height: 70vmin;
+    }
+    #seccio_1 {
+        flex-direction: row;
+    }
+    #seccio_3 {
+        flex-direction: row;
+    }
+    #seccio_4 {
+        flex-direction: row;
+    }
+    #seccio_5 {
+        flex-direction: row;
+    }
+    #seccio_6 {
+        flex-direction: row;
+    }
 }
